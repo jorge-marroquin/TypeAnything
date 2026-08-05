@@ -1,102 +1,279 @@
-
-<!DOCTYPE html>
+este es mi codigo: <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><title>Mi Typelit Personalizado</title>
-<style>
-body{font-family:monospace;font-size:24px;padding:20px;background:#f4f4f4;color:#333;transition:.3s;position:relative}
-body.modo-oscuro{background:#1e1e1e;color:#ccc}
-.modo-oscuro #texto-mostrar{color:#888}
-.modo-oscuro .correcto{color:#444}
-.modo-oscuro .incorrecto{background:#a02020;color:#fff}
-.modo-oscuro .actual{background:#003366;border-bottom:2px solid #4da6ff}
-.modo-oscuro textarea,.modo-oscuro #estadisticas{background:#2d2d2d;color:#ccc;border:1px solid #555}
-#boton-tema{position:absolute;top:20px;right:20px;background:#333;color:#fff;padding:8px 15px;font-size:14px;border-radius:20px;border:none;cursor:pointer}
-.modo-oscuro #boton-tema{background:#f4f4f4;color:#333}
-#pantalla-inicio{text-align:center;max-width:800px;margin:0 auto;padding-top:40px}
-textarea{width:100%;padding:15px;font-family:sans-serif;font-size:18px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box}
-#texto-mostrar{line-height:1.6;max-width:800px;margin:0 auto;color:#666;white-space:pre-wrap;text-align:left;min-height:300px}
-.correcto{color:#a0a0a0}.incorrecto{background:#ff4c4c;color:#fff}.actual{background:#d0e8ff;border-bottom:2px solid blue}
-#estadisticas{text-align:center;font-size:18px;font-weight:bold;background:#e0e0e0;padding:15px;border-radius:8px;display:flex;justify-content:center;gap:15px;max-width:800px;margin:40px auto 30px}
-button{padding:10px 20px;font-size:16px;cursor:pointer;border:none;border-radius:5px;background:#007bff;color:#fff;font-weight:bold}
-button:hover{background:#0056b3}
-#boton-reiniciar{background:#dc3545}
-#boton-reiniciar:hover{background:#c82333}
-</style></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Typelit Personalizado</title>
+    <style>
+        /* --- ESTILOS VISUALES (CSS) --- */
+        body { 
+            font-family: monospace; 
+            font-size: 24px; 
+            padding: 20px; 
+            background-color: #f4f4f4;
+        }
+
+        #pantalla-inicio {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        #texto-mostrar { 
+            line-height: 1.6; 
+            max-width: 800px; 
+            margin: 0 auto;
+            color: #666;
+            white-space: pre-wrap; 
+            text-align: left;
+            min-height: 300px; 
+        }
+        
+        /* Colores de las letras */
+        .correcto { color: #a0a0a0; } 
+        .incorrecto { 
+            color: white;
+            background-color: #ff4c4c; 
+        }
+        .actual { 
+            background-color: #d0e8ff; 
+            border-bottom: 2px solid blue;
+        }
+
+        /* Panel de estadísticas */
+        #estadisticas {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+            background-color: #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Botones */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        button:hover { background-color: #0056b3; }
+        #boton-reiniciar { background-color: #dc3545; }
+        #boton-reiniciar:hover { background-color: #c82333; }
+    </style>
+</head>
 <body>
-<button id="boton-tema">🌙 Modo Nocturno</button>
-<div id="pantalla-inicio">
-<h2>Pega tu texto aquí:</h2>
-<textarea id="texto-entrada" rows="10">El "secreto" del éxito es la constancia.
-
-A veces, copiamos textos largos (como este) que tienen guiones — y comillas tipográficas como “estas”. Ahora el sistema las reconocerá automáticamente.</textarea><br><br>
-<button id="boton-empezar">Comenzar a escribir</button></div>
-<div id="pantalla-escritura" style="display:none">
-<div id="estadisticas"><span>Tiempo: <span id="tiempo">0</span>s</span> | <span><span id="wpm">0</span> WPM</span> | <span>Precisión: <span id="precision">100</span>%</span> | <span>Pág: <span id="num-pagina">1</span>/<span id="total-paginas">1</span></span><button id="boton-reiniciar">Cambiar texto</button></div>
-<div id="texto-mostrar"></div></div>
-<script>
-const $=id=>document.getElementById(id);
-const bt=$('boton-tema'),pi=$('pantalla-inicio'),pe=$('pantalla-escritura'),te=$('texto-entrada'),be=$('boton-empezar'),br=$('boton-reiniciar'),tm=$('texto-mostrar'),vt=$('tiempo'),vw=$('wpm'),vp=$('precision'),vn=$('num-pagina'),vtp=$('total-paginas');
-let pags=[],pagAct=0,letras=[],indAct=0,temp,t=0,escribiendo=!1,pulTot=0,pulCor=0;
-bt.onclick=()=>{document.body.classList.toggle('modo-oscuro');bt.textContent=document.body.classList.contains('modo-oscuro')?'☀️ Modo Claro':'🌙 Modo Nocturno'};
-const norm=tx=>tx.replace(/[\u2018\u2019]/g,"'").replace(/[\u201C\u201D]/g,'"').replace(/[\u2013\u2014]/g,"-").replace(/\u00A0/g," ");
-const divTx=(tx,max)=>{let p=[],i=0;while(i<tx.length){let f=i+max;if(f<tx.length){let uEsp=tx.lastIndexOf(' ',f),uEnt=tx.lastIndexOf('\n',f),corte=Math.max(uEsp,uEnt);if(corte>i)f=corte+1;}p.push(tx.slice(i,f));i=f;}return p;};
-
-
-const span = document.createElement("span");
-
-if (caracter === "\n") {
-    span.textContent = "↵";
-    span.dataset.valor = "\n";
-} else {
-    span.textContent = caracter;
-    span.dataset.valor = caracter;
-}
+    <!-- PANTALLA 1: Inicio -->
+    <div id="pantalla-inicio">
+        <h2>Pega tu texto aquí:</h2>
+        <textarea id="texto-entrada" rows="10">Escribe aquí tu propio texto para practicar. Si pegas un texto muy largo, se dividirá automáticamente en varias páginas para que no te pierdas. ¡Inténtalo!</textarea>
+        <br><br>
+        <button id="boton-empezar">Comenzar a escribir</button>
+    </div>
     
-  
-                  
-                  if(letras.length>0)letras[0].classList.add('actual');};
-const startT=()=>{if(!escribiendo){escribiendo=!0;temp=setInterval(()=>{t++;vt.textContent=t;let w=Math.round((pulCor/5)/(t/60));vw.textContent=w>0?w:0;},1000)}};
-const handle=e=>{
-    if (
-    evento.key.length !== 1 &&
-    evento.key !== "Backspace" &&
-    evento.key !== "Enter"
-) {
-    return;
-}
-    if(indAct>=letras.length)return;
-    startT();let lAct=letras[indAct];
-    if(e.key==='Backspace')
-    {if(indAct>0){lAct.className='';indAct--;letras[indAct].className='actual';}return;}
-    if(e.key===' ')e.preventDefault();
-    pulTot++;
-    if(e.key===lAct.textContent){lAct.className='correcto';pulCor++;}else{lAct.className='incorrecto';}
-    vp.textContent=Math.round((pulCor/pulTot)*100);
-    indAct++;
-    if(indAct<letras.length)letras[indAct].className='actual';else
-    {if(pagAct<pags.length-1){pagAct++;showPag(pagAct);}else{clearInterval(temp);lAct.classList.remove('actual');}}
-};
-be.onclick=()=>{let tx=norm(te.value.trim());
-                if(!tx)return;t=0;escribiendo=!1;pulTot=0;pulCor=0;vt.textContent=0;vw.textContent=0;vp.textContent=100;clearInterval(temp);pags=divTx(tx,500);pagAct=0;vtp.textContent=pags.length;pi.style.display='none';pe.style.display='block';showPag(pagAct);window.removeEventListener('keydown',handle);window.addEventListener('keydown',handle);};
-br.onclick=()=>{clearInterval(temp);pe.style.display='none';pi.style.display='block';window.removeEventListener('keydown',handle);};
+    <!-- PANTALLA 2: Escritura -->
+    <div id="pantalla-escritura" style="display: none;">
+        <div id="estadisticas">
+            <span>Tiempo: <span id="tiempo">0</span>s</span> | 
+            <span><span id="wpm">0</span> WPM</span> |
+            <span>Precisión: <span id="precision">100</span>%</span> |
+            <span>Pág: <span id="num-pagina">1</span>/<span id="total-paginas">1</span></span>
+            <button id="boton-reiniciar">Cambiar texto</button>
+        </div>
+        <div id="texto-mostrar"></div>
+    </div>
 
-const sesion = {
-    fecha: new Date().toISOString(),
-    tiempo,
-    wpm: parseInt(vistaWpm.textContent),
-    precision: parseInt(vistaPrecision.textContent),
-    paginas: paginas.length
-};
+    <!-- --- CEREBRO DE LA APP (JavaScript) --- -->
+    <script>
+        const pantallaInicio = document.getElementById('pantalla-inicio');
+        const pantallaEscritura = document.getElementById('pantalla-escritura');
+        const textoEntrada = document.getElementById('texto-entrada');
+        const botonEmpezar = document.getElementById('boton-empezar');
+        const botonReiniciar = document.getElementById('boton-reiniciar');
+        const textoMostrar = document.getElementById('texto-mostrar');
+        
+        // Vistas de estadísticas
+        const vistaTiempo = document.getElementById('tiempo');
+        const vistaWpm = document.getElementById('wpm');
+        const vistaPrecision = document.getElementById('precision');
+        const vistaNumPagina = document.getElementById('num-pagina');
+        const vistaTotalPaginas = document.getElementById('total-paginas');
 
-const historial =
-    JSON.parse(localStorage.getItem("historial")) || [];
+        // Variables de estado
+        let paginas = [];
+        let paginaActual = 0;
+        let letras = [];
+        let indiceActual = 0;
+        
+        let temporizador;
+        let tiempo = 0;
+        let escribiendo = false;
+        let pulsacionesTotales = 0;
+        let pulsacionesCorrectas = 0;
+        
+        const CARACTERES_POR_PAGINA = 500; // Cuánto texto cabe en una pantalla
 
-historial.push(sesion);
+        // Función para cortar el texto sin romper palabras a la mitad
+        function dividirTextoEnPaginas(texto, max) {
+            let pags = [];
+            let i = 0;
+            while (i < texto.length) {
+                let fin = i + max;
+                if (fin < texto.length) {
+                    let ultimoEspacio = texto.lastIndexOf(' ', fin);
+                    let ultimoEnter = texto.lastIndexOf('\n', fin);
+                    let puntoCorte = Math.max(ultimoEspacio, ultimoEnter);
+                    
+                    if (puntoCorte > i) {
+                        fin = puntoCorte + 1;
+                    }
+                }
+                pags.push(texto.slice(i, fin));
+                i = fin;
+            }
+            return pags;
+        }
 
-localStorage.setItem(
-    "historial",
-    JSON.stringify(historial)
-);
-</script>
+        // Función para dibujar una página en la pantalla
+        function mostrarPagina(indicePagina) {
+            textoMostrar.innerHTML = ''; 
+            indiceActual = 0;
+            
+            vistaNumPagina.textContent = indicePagina + 1;
+            
+            paginas[indicePagina].split('').forEach(caracter => {
+                const span = document.createElement('span');
+                span.textContent = caracter;
+                textoMostrar.appendChild(span);
+            });
+
+            letras = document.querySelectorAll('#texto-mostrar span');
+            if (letras.length > 0) {
+                letras[0].classList.add('actual');
+            }
+        }
+
+        // ACCIÓN: Iniciar
+        botonEmpezar.addEventListener('click', () => {
+            const texto = textoEntrada.value.trim();
+            if (!texto) return;
+
+            // Reiniciar variables
+            tiempo = 0;
+            escribiendo = false;
+            pulsacionesTotales = 0;
+            pulsacionesCorrectas = 0;
+            vistaTiempo.textContent = 0;
+            vistaWpm.textContent = 0;
+            vistaPrecision.textContent = 100;
+            clearInterval(temporizador); 
+
+            // Dividir el texto y mostrar la primera página
+            paginas = dividirTextoEnPaginas(texto, CARACTERES_POR_PAGINA);
+            paginaActual = 0;
+            vistaTotalPaginas.textContent = paginas.length;
+            
+            pantallaInicio.style.display = 'none';
+            pantallaEscritura.style.display = 'block';
+            
+            mostrarPagina(paginaActual);
+            
+            window.removeEventListener('keydown', manejarEscritura);
+            window.addEventListener('keydown', manejarEscritura);
+        });
+
+        // ACCIÓN: Reiniciar
+        botonReiniciar.addEventListener('click', () => {
+            clearInterval(temporizador);
+            pantallaEscritura.style.display = 'none';
+            pantallaInicio.style.display = 'block';
+            window.removeEventListener('keydown', manejarEscritura);
+        });
+
+        function iniciarTemporizador() {
+            if (!escribiendo) {
+                escribiendo = true; 
+                temporizador = setInterval(() => {
+                    tiempo++;
+                    vistaTiempo.textContent = tiempo;
+                    
+                    let minutos = tiempo / 60;
+                    let wpm = Math.round((pulsacionesCorrectas / 5) / minutos);
+                    vistaWpm.textContent = wpm > 0 ? wpm : 0;
+                    
+                }, 1000); 
+            }
+        }
+
+        function manejarEscritura(evento) {
+            if (evento.key.length !== 1 && evento.key !== 'Backspace') return;
+            if (indiceActual >= letras.length) return; 
+
+            iniciarTemporizador();
+            const letraActual = letras[indiceActual];
+
+            if (evento.key === 'Backspace') {
+                if (indiceActual > 0) {
+                    letraActual.className = ''; 
+                    indiceActual--; 
+                    letras[indiceActual].className = 'actual'; 
+                }
+                return;
+            }
+
+            if (evento.key === ' ') {
+                evento.preventDefault(); 
+            }
+
+            pulsacionesTotales++;
+            
+            if (evento.key === letraActual.textContent) {
+                letraActual.className = 'correcto';
+                pulsacionesCorrectas++;
+            } else {
+                letraActual.className = 'incorrecto';
+            }
+            
+            let porcentaje = Math.round((pulsacionesCorrectas / pulsacionesTotales) * 100);
+            vistaPrecision.textContent = porcentaje;
+
+            indiceActual++;
+            
+            if (indiceActual < letras.length) {
+                letras[indiceActual].className = 'actual';
+            } else {
+                if (paginaActual < paginas.length - 1) {
+                    paginaActual++;
+                    mostrarPagina(paginaActual); 
+                } else {
+                    clearInterval(temporizador);
+                    letraActual.classList.remove('actual');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
