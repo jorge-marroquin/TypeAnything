@@ -1,0 +1,25 @@
+body{font-family:monospace;font-size:24px;padding:20px;background:#f4f4f4;color:#333;transition:.3s;position:relative}
+body.modo-oscuro{background:#1e1e1e;color:#ccc}
+.modo-oscuro #texto-mostrar{color:#888}
+.modo-oscuro .correcto{color:#444}
+.modo-oscuro .incorrecto{background:#a02020;color:#fff}
+.modo-oscuro .actual{background:#003366;border-bottom:2px solid #4da6ff}
+.modo-oscuro textarea,.modo-oscuro #estadisticas{background:#2d2d2d;color:#ccc;border:1px solid #555}
+#boton-tema{position:absolute;top:20px;right:20px;background:#333;color:#fff;padding:8px 15px;font-size:14px;border-radius:20px;border:none;cursor:pointer}
+.modo-oscuro #boton-tema{background:#f4f4f4;color:#333}
+#pantalla-inicio{text-align:center;max-width:800px;margin:0 auto;padding-top:40px}
+textarea{width:100%;padding:15px;font-family:sans-serif;font-size:18px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box}
+#texto-mostrar{line-height:1.6;max-width:800px;margin:0 auto;color:#666;white-space:pre-wrap;text-align:left;min-height:300px}
+.correcto{color:#a0a0a0}.incorrecto{background:#ff4c4c;color:#fff}.actual{background:#d0e8ff;border-bottom:2px solid blue}
+#estadisticas{text-align:center;font-size:18px;font-weight:bold;background:#e0e0e0;padding:15px;border-radius:8px;display:flex;justify-content:center;gap:15px;max-width:800px;margin:40px auto 30px}
+button{padding:10px 20px;font-size:16px;cursor:pointer;border:none;border-radius:5px;background:#007bff;color:#fff;font-weight:bold}
+button:hover{background:#0056b3}
+#boton-reiniciar{background:#dc3545}
+#boton-reiniciar:hover{background:#c82333}
+    .salto-linea{
+    color:#007bff;
+    background:#dbe9ff;
+    padding:0 5px;
+    border-radius:4px;
+    font-weight:bold;
+}
