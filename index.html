@@ -236,6 +236,11 @@ este es mi codigo: <!DOCTYPE html>
 ) {
     return;
 }
+            let teclaPresionada = evento.key;
+
+if (teclaPresionada === "Enter") {
+    teclaPresionada = "\n";
+}
             if (indiceActual >= letras.length) return; 
 
             iniciarTemporizador();
@@ -256,7 +261,7 @@ este es mi codigo: <!DOCTYPE html>
 
             pulsacionesTotales++;
             
-            if (evento.key === letraActual.textContent) {
+            if (teclaPresionada === letraActual.textContent) {
                 letraActual.className = 'correcto';
                 pulsacionesCorrectas++;
             } else {
