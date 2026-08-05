@@ -43,7 +43,13 @@ const divTx=(tx,max)=>{let p=[],i=0;while(i<tx.length){let f=i+max;if(f<tx.lengt
 const showPag=i=>{tm.innerHTML='';indAct=0;vn.textContent=i+1;pags[i].split('').forEach(c=>{let s=document.createElement('span');s.textContent=c;tm.appendChild(s);});letras=document.querySelectorAll('#texto-mostrar span');if(letras.length>0)letras[0].classList.add('actual');};
 const startT=()=>{if(!escribiendo){escribiendo=!0;temp=setInterval(()=>{t++;vt.textContent=t;let w=Math.round((pulCor/5)/(t/60));vw.textContent=w>0?w:0;},1000)}};
 const handle=e=>{
-    if(e.key.length!==1&&e.key!=='Backspace')return;
+    if (
+    evento.key.length !== 1 &&
+    evento.key !== "Backspace" &&
+    evento.key !== "Enter"
+) {
+    return;
+}
     if(indAct>=letras.length)return;
     startT();let lAct=letras[indAct];
     if(e.key==='Backspace'){if(indAct>0){lAct.className='';indAct--;letras[indAct].className='actual';}return;}
