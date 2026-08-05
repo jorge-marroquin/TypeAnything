@@ -229,7 +229,13 @@ este es mi codigo: <!DOCTYPE html>
         }
 
         function manejarEscritura(evento) {
-            if (evento.key.length !== 1 && evento.key !== 'Backspace') return;
+            if (
+    evento.key.length !== 1 &&
+    evento.key !== "Backspace" &&
+    evento.key !== "Enter"
+) {
+    return;
+}
             if (indiceActual >= letras.length) return; 
 
             iniciarTemporizador();
