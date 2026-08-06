@@ -1,23 +1,59 @@
-const ejercicios=[
+const ejercicios = [
+
 {
-nombre:"Terminación CIÓN",
-texto:`
-acción información comunicación educación organización
+    nombre:"ONDE",
+    texto:`
+donde
+esconde
+responde
+corresponde
+adonde
+redondear
 `
 },
 
 {
-nombre:"Palabras con NTE",
-texto:`
-mente puente presente constante diferente importante
+    nombre:"NTE",
+    texto:`
+mente
+puente
+frente
+presente
+siguiente
+aparentemente
 `
 },
 
 {
-nombre:"Sílabas difíciles",
-texto:`
-tra tre tri tro tru
-cla cle cli clo clu
+    nombre:"CIÓN",
+    texto:`
+acción
+nación
+información
+educación
+situación
+organización
+`
+},
+
+{
+    nombre:"Números",
+    texto:`
+12345 67890
+90817 56432
+1029384756
+9876543210
+`
+},
+
+{
+    nombre:"Signos",
+    texto:`
+¿Cómo estás?
+¡Excelente!
+"Hola"
+(Práctica)
+[Teclado]
 `
 }
 
