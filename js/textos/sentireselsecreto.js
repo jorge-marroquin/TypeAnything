@@ -7,7 +7,7 @@
 
             {
                 nombre: "Capítulo 1",
-                texto: "La Ley y Su Operación
+                texto: `La Ley y Su Operación
  
 EL MUNDO, y todo dentro de él, es la conciencia del hombre condicionada y objetivada. La conciencia es la causa así como la sustancia del mundo entero. Entonces es a la conciencia a quien debemos dirigirnos si queremos descubrir el secreto de la creación.
  
@@ -34,7 +34,7 @@ Es más fácil atribuirle tu sentimiento a eventos en el mundo que admitir que l
 El subconsciente acepta como verdadero aquello que tú sientes como verdadero y debido a que la creación es el resultado de las impresiones del subconsciente, tú, por medio de tus sentimientos, determinas la creación. Ya eres aquello que deseas ser, y tu negativa a creer esto es la única razón por la que no lo ves. Buscar en el exterior por aquello que no sientes que eres es buscar en vano, porque nunca encontramos aquello que deseamos; encontramos sólo aquello que somos. Resumiendo, expresas y tienes sólo aquello de lo que eres consciente de ser o poseer. “Al que tiene se le da”. Negar la evidencia de los sentidos y apropiarse del sentimiento del deseo cumplido es la manera para la realización de tu deseo.
  
 La maestría del dominio de ti mismo sobre tus pensamientos y sentimientos – es el mayor logro. Sin embargo, hasta que este dominio de ti mismo se alcance a la perfección, de modo que en lugar de apariencia sientas todo lo que deseas sentir, usa el sueño y la oración para ayudarte en realizar tus estados deseados. Estas son dos puertas de enlace hacia el subconsciente.
-"
+`
             },
             {
                 nombre: "Capítulo 2",
