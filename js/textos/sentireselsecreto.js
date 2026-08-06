@@ -1,5 +1,5 @@
-        const SentireselSecreto = {
-        id: "SentireselSecreto",
+        const sentireselsecreto. = {
+        id: "sentireselsecreto.",
         titulo: "Sentir es el Secreto",
         autor: "Neville Goddard",
 
