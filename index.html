@@ -9,45 +9,18 @@
 
 <body>
 
-<button id="boton-tema">
-🌙 Modo Nocturno
-</button>
-
+    <button id="boton-tema">🌙 Modo Nocturno</button>
 <div id="pantalla-inicio">
-    <h2>Pega tu texto aquí:</h2>
+<h2>Pega tu texto aquí:</h2>
+<textarea id="texto-entrada" rows="10">El "secreto" del éxito es la constancia.
 
-    <textarea id="texto-entrada"></textarea>
-
-    
-<button id="boton-empezar">
-    Comenzar a escribir
-</button>
-    
-</div>
-
-
+A veces, copiamos textos largos (como este) que tienen guiones — y comillas tipográficas como “estas”. Ahora el sistema las reconocerá automáticamente.</textarea><br><br>
+<button id="boton-empezar">Comenzar a escribir</button></div>
 <div id="pantalla-escritura" style="display:none">
-
-    <div id="estadisticas">
-        Tiempo:
-        <span id="tiempo">0</span>s |
-
-        <span id="wpm">0</span> WPM |
-
-        Precisión:
-        <span id="precision">100</span>%
-
-    </div>
-
-<button id="boton-reiniciar">
-    Cambiar texto
-</button>
-
-    <span id="num-pagina">1</span>/
-<span id="total-paginas">1</span>
+<div id="estadisticas"><span>Tiempo: <span id="tiempo">0</span>s</span> | <span><span id="wpm">0</span> WPM</span> | <span>Precisión: <span id="precision">100</span>%</span> | <span>Pág: <span id="num-pagina">1</span>/<span id="total-paginas">1</span></span><button id="boton-reiniciar">Cambiar texto</button></div>
+<div id="texto-mostrar"></div></div>
     
-    <div id="texto-mostrar"></div>
-
+    
 </div>
 
 
