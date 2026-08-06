@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-<meta charset="UTF-8">
-
+    <meta charset="UTF-8">
     <title>Biblioteca - TypeAnything</title>
-
-<link rel="stylesheet" href="css/estilo.css">
-    <button id="boton-tema">🌙 Modo Nocturno</button>
-
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
 
+<button id="boton-tema">🌙 Modo Nocturno</button>
+
 <h1>📚 Biblioteca</h1>
-    
+
 <div id="lista-libros"></div>
 
 <script src="js/libros.js"></script>
@@ -23,27 +20,23 @@
 
 const lista = document.getElementById("lista-libros");
 
-
 libros.forEach(libro=>{
 
     let boton=document.createElement("button");
 
-    boton.textContent="📖 "+libro.titulo;
-
+    boton.textContent="📖 " + libro.titulo;
 
     boton.onclick=()=>{
-
-        window.location.href=
-        "capitulos.html?libro="+libro.id;
-
+        window.location.href="capitulos.html?libro=" + libro.id;
     };
-
 
     lista.appendChild(boton);
 
 });
 
 </script>
-    
+
 <script src="js/tema.js"></script>
+
 </body>
+</html>
