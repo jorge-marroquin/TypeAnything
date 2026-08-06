@@ -13,6 +13,13 @@ const showPag=i=>{
     indAct=0;
     vn.textContent=i+1;
 
+
+    // Cargar capítulo seleccionado desde la biblioteca
+const textoGuardado = localStorage.getItem("textoPractica");
+
+if(textoGuardado){
+    te.value = textoGuardado;
+    localStorage.removeItem("textoPractica");
     pags[i].split('').forEach(c=>{
         let s=document.createElement('span');
 
