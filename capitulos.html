@@ -40,7 +40,12 @@ libro.capitulos.forEach((cap,index)=>{
 
     boton.onclick=()=>{
 
+        console.log(cap.texto);
 
+        localStorage.setItem(
+            "textoPractica",
+            cap.texto
+        );
 
         window.location.href="index.html";
 
@@ -53,18 +58,6 @@ libro.capitulos.forEach((cap,index)=>{
 
 
 
-    boton.onclick=()=>{
-
-    console.log(cap.texto);
-
-    localStorage.setItem(
-        "textoPractica",
-        cap.texto
-    );
-
-    window.location.href="index.html";
-
-};
 
 </script>
 
