@@ -35,13 +35,7 @@ if(textoGuardado){
 
 let pags=[],pagAct=0,letras=[],indAct=0,temp,t=0,escribiendo=!1,pulTot=0,pulCor=0;
 
-bt.onclick=()=>{
-    document.body.classList.toggle('modo-oscuro');
 
-    bt.textContent=document.body.classList.contains('modo-oscuro')
-    ? '☀️ Modo Claro'
-    : '🌙 Modo Nocturno';
-};
 const norm=tx=>tx.replace(/[\u2018\u2019]/g,"'").replace(/[\u201C\u201D]/g,'"').replace(/[\u2013\u2014]/g,"-").replace(/\u00A0/g," ");
 const divTx=(tx,max)=>{let p=[],i=0;while(i<tx.length){let f=i+max;if(f<tx.length){let uEsp=tx.lastIndexOf(' ',f),uEnt=tx.lastIndexOf('\n',f),corte=Math.max(uEsp,uEnt);if(corte>i)f=corte+1;}p.push(tx.slice(i,f));i=f;}return p;};
 
