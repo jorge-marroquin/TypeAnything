@@ -1,8 +1,7 @@
 const $=id=>document.getElementById(id);
 
 
-const bt=$('boton-tema'),
-pi=$('pantalla-inicio'),
+const pi=$('pantalla-inicio'),
 pe=$('pantalla-escritura'),
 te=$('texto-entrada'),
 be=$('boton-empezar'),
