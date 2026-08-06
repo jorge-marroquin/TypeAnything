@@ -1,5 +1,5 @@
 const libros = [
     principito,
     habitosAtomicos,
-    SentireselSecreto
+    SentireselSecreto,
 ];
