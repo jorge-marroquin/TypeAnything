@@ -1,1 +1,58 @@
+<h1 id="titulo-libro"></h1>
 
+<div id="lista-capitulos"></div>
+
+
+<script src="js/libros.js"></script>
+
+<script>
+
+const parametros =
+new URLSearchParams(window.location.search);
+
+
+const idLibro =
+parametros.get("libro");
+
+
+const libro =
+libros.find(l=>l.id===idLibro);
+
+
+const titulo =
+document.getElementById("titulo-libro");
+
+
+const lista =
+document.getElementById("lista-capitulos");
+
+
+titulo.textContent =
+libro.titulo;
+
+
+libro.capitulos.forEach((cap,index)=>{
+
+    let boton=document.createElement("button");
+
+    boton.textContent=cap.nombre;
+
+
+    boton.onclick=()=>{
+
+        localStorage.setItem(
+            "textoPractica",
+            cap.texto
+        );
+
+
+        window.location.href="index.html";
+
+    };
+
+
+    lista.appendChild(boton);
+
+});
+
+</script>
