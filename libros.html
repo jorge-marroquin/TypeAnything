@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Biblioteca - TypeAnything</title>
+
+<link rel="stylesheet" href="css/estilo.css">
+
+</head>
+
+<body>
+
+<h1>📚 Biblioteca</h1>
+
+<div id="lista-libros">
+
+<button onclick="abrirLibro('principito')">
+📖 El Principito
+</button>
+
+<button onclick="abrirLibro('habitos')">
+📖 Hábitos Atómicos
+</button>
+
+</div>
+
+
+<script src="js/libros.js"></script>
+
+<script>
+
+function abrirLibro(libro){
+
+    localStorage.setItem(
+        "libroSeleccionado",
+        libro
+    );
+
+    window.location.href="capitulos.html";
+
+}
+
+</script>
+
+</body>
+</html>
