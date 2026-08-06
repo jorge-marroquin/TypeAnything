@@ -1,5 +1,6 @@
 <script>
 const $=id=>document.getElementById(id);
+const be = document.getElementById('boton-empezar');
 const bt=$('boton-tema'),pi=$('pantalla-inicio'),pe=$('pantalla-escritura'),te=$('texto-entrada'),be=$('boton-empezar'),br=$('boton-reiniciar'),tm=$('texto-mostrar'),vt=$('tiempo'),vw=$('wpm'),vp=$('precision'),vn=$('num-pagina'),vtp=$('total-paginas');
 let pags=[],pagAct=0,letras=[],indAct=0,temp,t=0,escribiendo=!1,pulTot=0,pulCor=0;
 bt.onclick=()=>{document.body.classList.toggle('modo-oscuro');bt.textContent=document.body.classList.contains('modo-oscuro')?'☀️ Modo Claro':'🌙 Modo Nocturno'};
