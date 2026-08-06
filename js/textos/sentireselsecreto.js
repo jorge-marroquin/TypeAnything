@@ -6,15 +6,11 @@
         capitulos: [
             {
                 nombre: "Introducción",
-                texto: "TABLA DE CONTENIDOS
- 
-• Prefacio
-• Capítulo 1 – LA LEY Y SU OPERACIÓN 
-• Capítulo 2 – EL SUEÑO
-• Capítulo 3 – LA ORACIÓN
-• Capítulo 4 – ESPÍRITU-SENTIMIENTO
-
-
+                texto: "Prefacio
+1 – LA LEY Y SU OPERACIÓN
+2 – EL SUEÑO
+3 – LA ORACIÓN
+4 – ESPÍRITU-SENTIMIENTO
 
 Prefacio
  
