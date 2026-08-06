@@ -1,29 +1,39 @@
-<div id="lista-libros"></div>
+const libros = [
+    {
+        id: "principito",
+        titulo: "El Principito",
+        autor: "Antoine de Saint-Exupéry",
 
-<script src="js/libros.js"></script>
+        capitulos: [
+            {
+                nombre: "Capítulo 1",
+                texto: "Texto del capítulo 1..."
+            },
+            {
+                nombre: "Capítulo 2",
+                texto: "Texto del capítulo 2..."
+            }
+        ]
+    },
 
-<script>
+    {
+        id: "habitos",
+        titulo: "Hábitos Atómicos",
+        autor: "James Clear",
 
-const lista = document.getElementById("lista-libros");
-
-
-libros.forEach(libro=>{
-
-    let boton=document.createElement("button");
-
-    boton.textContent="📖 "+libro.titulo;
-
-
-    boton.onclick=()=>{
-
-        window.location.href=
-        "capitulos.html?libro="+libro.id;
-
-    };
-
-
-    lista.appendChild(boton);
-
-});
-
-</script>
+        capitulos: [
+            {
+                nombre: "Introducción",
+                texto: "Texto de introducción..."
+            },
+            {
+                nombre: "Capítulo 1",
+                texto: "Texto del capítulo 1..."
+            },
+            {
+                nombre: "Capítulo 2",
+                texto: "Texto del capítulo 2..."
+            }
+        ]
+    }
+];
