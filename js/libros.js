@@ -35,7 +35,7 @@ const libros = [
                 texto: "Texto del capítulo 2..."
             }
         ]
-    }
+    },
 
         {
         id: "sentir",
