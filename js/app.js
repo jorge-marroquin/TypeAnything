@@ -91,3 +91,19 @@ const handle=e=>{
 };
     be.onclick=()=>{let tx=norm(te.value.trim());if(!tx)return;t=0;escribiendo=!1;pulTot=0;pulCor=0;vt.textContent=0;vw.textContent=0;vp.textContent=100;clearInterval(temp);pags=divTx(tx,500);pagAct=0;vtp.textContent=pags.length;pi.style.display='none';pe.style.display='block';showPag(pagAct);window.removeEventListener('keydown',handle);window.addEventListener('keydown',handle);};
 br.onclick=()=>{clearInterval(temp);pe.style.display='none';pi.style.display='block';window.removeEventListener('keydown',handle);};
+
+const botonLibros = $('boton-libros');
+const botonEjercicios = $('boton-ejercicios');
+
+botonLibros.onclick = ()=>{
+
+    console.log("Abrir biblioteca");
+
+};
+
+
+botonEjercicios.onclick = ()=>{
+
+    console.log("Abrir ejercicios");
+
+};
