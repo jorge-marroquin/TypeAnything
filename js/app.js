@@ -75,8 +75,6 @@ const showPag=i=>{
     }
 
 };
-
-};
 const startT=()=>{if(!escribiendo){escribiendo=!0;temp=setInterval(()=>{t++;vt.textContent=t;let w=Math.round((pulCor/5)/(t/60));vw.textContent=w>0?w:0;},1000)}};
 const handle=e=>{
     if(
