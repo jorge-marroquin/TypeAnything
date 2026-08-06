@@ -1,6 +1,4 @@
-<script>
 const $=id=>document.getElementById(id);
-const be = document.getElementById('boton-empezar');
 const bt=$('boton-tema'),pi=$('pantalla-inicio'),pe=$('pantalla-escritura'),te=$('texto-entrada'),be=$('boton-empezar'),br=$('boton-reiniciar'),tm=$('texto-mostrar'),vt=$('tiempo'),vw=$('wpm'),vp=$('precision'),vn=$('num-pagina'),vtp=$('total-paginas');
 let pags=[],pagAct=0,letras=[],indAct=0,temp,t=0,escribiendo=!1,pulTot=0,pulCor=0;
 bt.onclick=()=>{document.body.classList.toggle('modo-oscuro');bt.textContent=document.body.classList.contains('modo-oscuro')?'☀️ Modo Claro':'🌙 Modo Nocturno'};
@@ -89,5 +87,3 @@ const handle=e=>{
 };
     be.onclick=()=>{let tx=norm(te.value.trim());if(!tx)return;t=0;escribiendo=!1;pulTot=0;pulCor=0;vt.textContent=0;vw.textContent=0;vp.textContent=100;clearInterval(temp);pags=divTx(tx,500);pagAct=0;vtp.textContent=pags.length;pi.style.display='none';pe.style.display='block';showPag(pagAct);window.removeEventListener('keydown',handle);window.addEventListener('keydown',handle);};
 br.onclick=()=>{clearInterval(temp);pe.style.display='none';pi.style.display='block';window.removeEventListener('keydown',handle);};
-
-</script>
