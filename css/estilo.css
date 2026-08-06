@@ -1,5 +1,5 @@
 body{font-family:monospace;font-size:24px;padding:20px;background:#f4f4f4;color:#333;transition:.3s;position:relative}
-body.modo-oscuro{background:#1e1e1e;color:#ccc}
+html.modo-oscuro body{background:#1e1e1e;color:#ccc}
 .modo-oscuro #texto-mostrar{color:#888}
 .modo-oscuro .correcto{color:#444}
 .modo-oscuro .incorrecto{background:#a02020;color:#fff}
