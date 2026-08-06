@@ -38,7 +38,7 @@ La maestría del dominio de ti mismo sobre tus pensamientos y sentimientos – e
             },
             {
                 nombre: "Capítulo 2",
-                texto: "Texto del capítulo 2..."
+                texto: `Texto del capítulo 2...`
             }
         ]
     }
